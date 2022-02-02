@@ -8,22 +8,26 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
 - Clang
 
 # How to Build:
+## Windows:
+### Clang:
+- Run `scripts\build_ray_tracer.bat`.
+- By default, It will output to `bin\ndrRayTracer\ndrRayTracer.exe`.
 
 # TODO:
 - [ ] Compiler Support:
-    - [x] Clang
+    - [X] Clang
     - [ ] MSVC
 - [ ] Implement Ray Tracer
-    - [ ] Write Ray Tracer Data to Image
-    - [ ] World, Objects(Spheres), Materials
-    - [ ] Camera
+    - [X] Write Ray Tracer Data to Image
+    - [X] World, Objects(Spheres), Materials
+    - [X] Camera
     - [ ] Lights
     - [ ] More Objects (Boxes)
 - [ ] Implement Multithreading
-    - [ ] Mutex
-    - [ ] Condition Variables
-    - [ ] Threads
-    - [ ] Thread Pools
+    - [X] Mutex
+    - [X] Condition Variables
+    - [X] Threads
+    - [X] Thread Pools
 - [ ] Implement Window
     - [ ] Create and Destroy Window
     - [ ] Display Ray Tracer Data to Window

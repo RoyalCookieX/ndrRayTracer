@@ -1,11 +1,11 @@
 @echo off
 
-set _NAME=test
+set _NAME=ndrRayTracer
 set _PROJECT_DIR=..\
 set _BIN_DIR=bin\%_NAME%\
 
 set _INCLUDE_DIRS=src\ ext\stb_image\
-set _SOURCE_DIRS=src\
+set _SOURCE_DIRS=src\ test\%_NAME%\
 @REM Debug
 set _DEFINES=_DEBUG
 set _CONFIG_FLAGS=-Werror -g
