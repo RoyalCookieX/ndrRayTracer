@@ -48,3 +48,4 @@ ndrColor ndrGammaCorrect(ndrColor color, uint32_t samples);
 ndrColor ndrAddColor(ndrColor a, ndrColor b);
 ndrColor ndrMulScalarColor(ndrColor a, float b);
 ndrColor ndrMulColor(ndrColor a, ndrColor b);
+ndrColor ndrRandomColor();

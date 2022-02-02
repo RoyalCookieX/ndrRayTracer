@@ -209,3 +209,12 @@ ndrColor ndrMulColor(ndrColor a, ndrColor b)
         a.a * b.a
     };
 }
+ndrColor ndrRandomColor()
+{
+    return (ndrColor){
+        ndrRandomF01(),
+        ndrRandomF01(),
+        ndrRandomF01(),
+        ndrRandomF01()
+    };
+}
