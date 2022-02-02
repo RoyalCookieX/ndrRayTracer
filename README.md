@@ -29,6 +29,7 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
     - [ ] Display Ray Tracer Data to Window
 
 # Libraries:
+- Writing Images: [_stb_image_write.h_](https://github.com/nothings/stb/blob/master/stb_image_write.h)
 
 # Sources:
 - Inspired by: [_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html)

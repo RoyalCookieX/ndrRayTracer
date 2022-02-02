@@ -4,7 +4,7 @@ set _NAME=test
 set _PROJECT_DIR=..\
 set _BIN_DIR=bin\%_NAME%\
 
-set _INCLUDE_DIRS=src\
+set _INCLUDE_DIRS=src\ ext\stb_image\
 set _SOURCE_DIRS=src\
 @REM Debug
 set _DEFINES=_DEBUG
