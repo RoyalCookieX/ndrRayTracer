@@ -130,7 +130,7 @@ void ndrWaitThread(ndrTime ms)
     Sleep((DWORD)ms);
 }
 
-DWORD WINAPI ThreadProc(LPVOID lpParam)
+static DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
     ndrThreadInfo* info = lpParam;
     ndrThreadRoutine routine = info->routine;

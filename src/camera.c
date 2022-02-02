@@ -38,7 +38,7 @@ ray3 ndrViewportRay(ndrCamera camera, float u, float v)
     };
 }
 
-void ndrSetBottomLeft(ndrCamera* camera)
+static void ndrSetBottomLeft(ndrCamera* camera)
 {
     camera->bottomLeft = ndrSubVec3(ndrSubVec3(ndrSubVec3(camera->position, 
     ndrMulScalarVec3(camera->right, camera->viewport.x / 2.0f)), 

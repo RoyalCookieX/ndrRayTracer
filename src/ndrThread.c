@@ -105,7 +105,7 @@ void ndrAddTask(ndrThreadPool threadPool, ndrThreadRoutine routine, void* args)
     ndrUnlockMutex(threadPool->mutex);
 }
 
-void workerRoutine(void* args)
+static void workerRoutine(void* args)
 {
     ndrThreadPool threadPool = args;
     while(true)
@@ -144,7 +144,7 @@ void workerRoutine(void* args)
     ndrUnlockMutex(threadPool->mutex);
 }
 
-uint32_t getWorkerIndex(ndrThreadPool threadPool, ndrTaskState state)
+static uint32_t getWorkerIndex(ndrThreadPool threadPool, ndrTaskState state)
 {
     for(uint32_t i = 0; i < threadPool->maxTasks; i++)
     {

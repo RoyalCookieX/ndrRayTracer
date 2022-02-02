@@ -12,7 +12,7 @@ bool ndrRaycastObject(ndrObject object, ray3 ray, float minDistance, float maxDi
     }
 }
 
-bool ndrRaycastSphere(ndrObject object, ray3 ray, float minDistance, float maxDistance, ndrRaycastResult* result)
+static bool ndrRaycastSphere(ndrObject object, ray3 ray, float minDistance, float maxDistance, ndrRaycastResult* result)
 {
     ndrNormalizeRay3(&ray);
     vec3 oc = ndrSubVec3(ray.origin, object.position);

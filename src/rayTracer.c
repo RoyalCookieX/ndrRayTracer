@@ -65,7 +65,7 @@ bool ndrRenderMultiThreaded(ndrWorld world, ndrCamera camera, ndrScreenBuffer sc
     return true;
 }
 
-void ndrRenderWorker(void* args)
+static void ndrRenderWorker(void* args)
 {
     ndrRenderArgs* renderArgs = args;
     ndrWorld world = renderArgs->world;
@@ -97,7 +97,7 @@ void ndrRenderWorker(void* args)
     ndrWritePixel(screenBuffer, screenPosition, ndrColorToPixel(color));
 }
 
-ndrColor ndrGetRayColor(ndrWorld world, ray3 ray, uint32_t maxBounces)
+static ndrColor ndrGetRayColor(ndrWorld world, ray3 ray, uint32_t maxBounces)
 {
     if(maxBounces < 1)
         return NDR_COLOR_BLACK;
