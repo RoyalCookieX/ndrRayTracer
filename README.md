@@ -28,7 +28,7 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
     - [X] Camera
     - [ ] Lights
     - [ ] More Objects (Boxes)
-- [ ] Implement Multithreading
+- [X] Implement Multithreading
     - [X] Mutex
     - [X] Condition Variables
     - [X] Threads
