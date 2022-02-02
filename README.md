@@ -6,17 +6,22 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
 - Windows
 ## Compilers:
 - Clang
+- MSVC (Visual Studio 2019, 2022)
 
 # How to Build:
 ## Windows:
 ### Clang:
-- Run `scripts\build_ray_tracer.bat`.
+- Run `scripts\build_ray_tracer.bat clang`.
+- By default, It will output to `bin\ndrRayTracer\ndrRayTracer.exe`.
+### MSVC:
+- Open `Developer Command Prompt For Visual Studio` in the Windows Menu.
+- Run `scripts\build_ray_tracer.bat msvc`.
 - By default, It will output to `bin\ndrRayTracer\ndrRayTracer.exe`.
 
 # TODO:
-- [ ] Compiler Support:
+- [X] Compiler Support:
     - [X] Clang
-    - [ ] MSVC
+    - [X] MSVC
 - [ ] Implement Ray Tracer
     - [X] Write Ray Tracer Data to Image
     - [X] World, Objects(Spheres), Materials

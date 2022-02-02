@@ -58,7 +58,7 @@ int main()
     ndrScreenBuffer screenBuffer;
     ndrCreateScreenBuffer(screenSize, NDR_PIXEL_BLACK, &screenBuffer);
 
-    ndrRenderSettings settings = {};
+    ndrRenderSettings settings;
     settings.sampleCount = SAMPLE_COUNT;
     settings.maxBounces = MAX_BOUNCES;
     settings.maxThreads = MAX_THREADS;
@@ -84,13 +84,15 @@ int main()
 static ndrMaterial randomMaterial()
 {
     ndrMaterialType type = (ndrMaterialType)ndrRandomF(0, 3);
+    ndrMaterial result;
     switch(type)
     {
-        case NDR_MATERIAL_TYPE_LAMBERT: return NDR_MAKE_MATERIAL_LAMBERT(ndrRandomColor());
-        case NDR_MATERIAL_TYPE_METAL: return NDR_MAKE_MATERIAL_METAL(ndrRandomColor(), ndrRandomF01());
-        case NDR_MATERIAL_TYPE_DIELECTRIC: return NDR_MAKE_MATERIAL_DIELECTRIC(ndrRandomF(1.2f, 2.4f));
-        default: return (ndrMaterial){};
+        case NDR_MATERIAL_TYPE_LAMBERT: result = NDR_MAKE_MATERIAL_LAMBERT(ndrRandomColor()); break;
+        case NDR_MATERIAL_TYPE_METAL: result =  NDR_MAKE_MATERIAL_METAL(ndrRandomColor(), ndrRandomF01()); break;
+        case NDR_MATERIAL_TYPE_DIELECTRIC: result = NDR_MAKE_MATERIAL_DIELECTRIC(ndrRandomF(1.2f, 2.4f)); break;
+        default: break; 
     }
+    return result;
 }
 
 static ndrObject randomObject()

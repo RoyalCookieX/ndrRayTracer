@@ -1,6 +1,11 @@
 # General
 *[Bb]in/
 *.png
+*.exe
+*.ilk
+*.pdb
+*.lib
+*.obj
 
 # VS Code
 *.vscode/

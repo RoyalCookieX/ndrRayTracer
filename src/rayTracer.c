@@ -23,7 +23,7 @@ bool ndrRenderSingleThreaded(ndrWorld world, ndrCamera camera, ndrScreenBuffer s
     {
         for(uint32_t x = 0; x < screenBuffer->size.x; x++)
         {
-            ndrRenderArgs renderArgs = {};
+            ndrRenderArgs renderArgs;
             renderArgs.world = world;
             renderArgs.camera = camera;
             renderArgs.screenBuffer = screenBuffer;

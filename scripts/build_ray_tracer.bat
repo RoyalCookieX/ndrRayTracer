@@ -8,12 +8,19 @@ set _INCLUDE_DIRS=src\ ext\stb_image\
 set _SOURCE_DIRS=src\ test\%_NAME%\
 @REM Debug
 set _DEFINES=_DEBUG
-set _CONFIG_FLAGS=-Werror -g
 @REM Release
 @REM set _DEFINES=NDEBUG
-@REM set _CONFIG_FLAGS=-Werror -O2
 
 set _LIB_DIRS=
-set _LIBS=libucrt
 
-call build_project.bat
+if %1==clang (
+    set _LIBS=libucrt
+    set _CONFIG_FLAGS=-Werror -g
+    call build_clang_project.bat
+) else if %1==msvc (
+    set _CONFIG_FLAGS=/EHsc /Zi /MTd
+    call build_msvc_project.bat
+) else (
+    echo Usage: %~nx0 ^<clang^|msvc^>
+    exit /b 1
+)

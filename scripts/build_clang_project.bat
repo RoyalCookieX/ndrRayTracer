@@ -1,6 +1,8 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+echo Compiler: Clang
+
 if not exist %_PROJECT_DIR% (
     echo Invalid Project Directory '%_PROJECT_DIR%'
     exit /b 1
@@ -47,6 +49,6 @@ for %%s in (%_SOURCE_DIRS%) do (
 )
 
 echo Building %_NAME%...
-clang %_SOURCE_FILES% -o %_BIN_DIR%%_NAME%.exe -std=c17 %_CONFIG_FLAGS% %_INCLUDE_DIR_FLAGS% %_DEFINE_FLAGS% %_LIB_DIR_FLAGS% %_LIB_FLAGS%
+call clang %_SOURCE_FILES% -o %_BIN_DIR%%_NAME%.exe -std=c17 %_CONFIG_FLAGS% %_INCLUDE_DIR_FLAGS% %_DEFINE_FLAGS% %_LIB_DIR_FLAGS% %_LIB_FLAGS%
 echo -^> %_BIN_DIR%%_NAME%.exe
 popd
