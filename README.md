@@ -5,10 +5,14 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
 ## OS:
 - Windows
 ## Compilers:
+- Clang
 
 # How to Build:
 
 # TODO:
+- [ ] Compiler Support:
+    - [x] Clang
+    - [ ] MSVC
 - [ ] Implement Ray Tracer
     - [ ] Write Ray Tracer Data to Image
     - [ ] World, Objects(Spheres), Materials

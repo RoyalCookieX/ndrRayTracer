@@ -1,0 +1,5 @@
+# General
+*[Bb]in/
+
+# VS Code
+*.vscode/
