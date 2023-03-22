@@ -6,11 +6,7 @@
 
 // world
 #define GROUND_MATERIAL NDR_MAKE_MATERIAL_LAMBERT(NDR_MAKE_COLOR(0.5f, 0.6f, 0.3f, 1.0f))
-#if MULTITHREADED || 0
 #define MAX_OBJECTS 25
-#else
-#define MAX_OBJECTS 10
-#endif
 
 // camera
 #define FOV_DEGREES 90.0f
@@ -81,7 +77,7 @@ int main()
     ndrDestroyScreenBuffer(screenBuffer);
 }
 
-static ndrMaterial randomMaterial()
+ndrMaterial randomMaterial()
 {
     ndrMaterialType type = (ndrMaterialType)ndrRandomF(0, 3);
     ndrMaterial result;
@@ -95,7 +91,7 @@ static ndrMaterial randomMaterial()
     return result;
 }
 
-static ndrObject randomObject()
+ndrObject randomObject()
 {
     return NDR_MAKE_OBJECT_SPHERE(
         ndrMulScalarVec3(NDR_MAKE_VEC3(

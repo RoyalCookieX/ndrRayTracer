@@ -4,24 +4,25 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
 # Supported Platforms:
 ## OS:
 - Windows
-## Compilers:
-- Clang
-- MSVC (Visual Studio 2019, 2022)
+## Build Targets
+- Visual Studio 2022
+- GNU Makefile
 
 # How to Build:
 ## Windows:
-### Clang:
-- Run `scripts\build_ray_tracer.bat clang`.
-- By default, It will output to `bin\ndrRayTracer\ndrRayTracer.exe`.
-### MSVC:
-- Open `Developer Command Prompt For Visual Studio` in the Windows Menu.
-- Run `scripts\build_ray_tracer.bat msvc`.
-- By default, It will output to `bin\ndrRayTracer\ndrRayTracer.exe`.
+- Clone this repository using ``git clone https://github.com/RoyalCookieX/ndrRayTracer.git``.
+- From the repository directory, open a terminal and run ``scripts/premake5 <ACTION>``. This will create a ``build/<ACTION>`` folder containing the build files. Replace ``<ACTION>`` with either:
+    - ``vs2022`` for Visual Studio 2022
+    - ``gmake2`` for GNU Makefile
+- The following steps are build target specific:
+### Visual Studio:
+- Open the solution file in the ``build/vs2022`` folder.
+### GNU Makefile
+- From the repository directory, run ``make -C build/gmake2 config=<CONFIG>``. This will create a ``bin/gmake2/<PROJECT_NAME>/<CONFIG>`` folder containing all the binaries. Replace ``<CONFIG>`` with either:
+    - ``debug`` for debug build
+    - ``release`` for release build
 
 # TODO:
-- [X] Compiler Support:
-    - [X] Clang
-    - [X] MSVC
 - [ ] Implement Ray Tracer
     - [X] Write Ray Tracer Data to Image
     - [X] World, Objects(Spheres), Materials
