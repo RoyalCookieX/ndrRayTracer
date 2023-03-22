@@ -1,6 +1,22 @@
 # ndrRayTracer
 This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C, and implements basic Ray Tracing, as well as multithreading.
 
+# Benchmark:
+## System:
+- CPU: AMD Ryzen 5 4600G
+- RAM: 12 GB
+## Ray Tracer Settings:
+- Spheres: 50
+- Samples: 50
+- Max Samples: 100
+- Max Threads (multithreaded): 8
+- Max Tasks (multithreaded): 16
+
+![](https://github.com/RoyalCookieX/ndrRayTracer/blob/main/benchmark/singlethreaded/n50-s50-b100.png?raw=true)*Singlethreaded: 00:01:30 - 00:02:10*
+
+![](https://github.com/RoyalCookieX/ndrRayTracer/blob/main/benchmark/multithreaded/n50-s50-b100.png?raw=true)
+*Multithreaded: 00:00:12 - 00:00:13*
+
 # Supported Platforms:
 ## OS:
 - Windows

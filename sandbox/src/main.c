@@ -1,12 +1,13 @@
 #include <rayTracer.h>
 #include <ndrMath.h>
 #include <ndrTime.h>
+#include <stdio.h>
 
 #define MULTITHREADED 1
 
 // world
 #define GROUND_MATERIAL NDR_MAKE_MATERIAL_LAMBERT(NDR_MAKE_COLOR(0.5f, 0.6f, 0.3f, 1.0f))
-#define MAX_OBJECTS 25
+#define MAX_OBJECTS 50
 
 // camera
 #define FOV_DEGREES 90.0f
@@ -24,18 +25,21 @@
 #define MAX_TASKS 0
 #endif
 
-#define IMAGE_SIZE NDR_MAKE_UVEC2(400, 300)
-#if MULTITHREADED
-#define IMAGE_NAME "ray_tracer_mt.png"
-#else
-#define IMAGE_NAME "ray_tracer.png"
-#endif
+#define IMAGE_SIZE NDR_MAKE_UVEC2(800, 600)
 
 ndrMaterial randomMaterial();
 ndrObject randomObject();
 
-int main()
+int main(int argc, char *argv[])
 {
+    if (argc != 2) {
+        printf("usage: sandbox <image_name>\n");
+        printf("example: sandbox ray_tracer.png\n");
+        return -1;
+    }
+
+    char *image_name = argv[1];
+
     ndrMaterial mat = randomMaterial();
     uvec2 screenSize = IMAGE_SIZE;
     float aspect = (float)screenSize.x / (float)screenSize.y;
@@ -62,13 +66,13 @@ int main()
 
     ndrTime start, end;
     ndrGetTime(&start);
-    printf("Rendering %s...\n", IMAGE_NAME);
+    printf("Rendering %s...\n", image_name);
 #if MULTITHREADED
     ndrRenderMultiThreaded(world, camera, screenBuffer, settings);
 #else
     ndrRenderSingleThreaded(world, camera, screenBuffer, settings);
 #endif
-    ndrWriteFile(screenBuffer, IMAGE_NAME);
+    ndrWriteFile(screenBuffer, image_name);
     ndrGetTime(&end);
     ndrTime elapsed = ndrGetElapsedSeconds(start, end);
     ndrPrintHHMMSS(elapsed);
