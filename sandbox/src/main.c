@@ -30,13 +30,11 @@ ndrObject randomObject();
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2) {
-        printf("usage: sandbox <image_name>\n");
-        printf("example: sandbox ray_tracer.png\n");
-        return -1;
+    const char *image_name = "ray_tracer.png";
+    
+    if (argc == 2) {
+        image_name = argv[1];
     }
-
-    char *image_name = argv[1];
 
     ndrMaterial mat = randomMaterial();
     uvec2 screenSize = IMAGE_SIZE;
