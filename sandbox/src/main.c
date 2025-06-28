@@ -3,8 +3,6 @@
 #include <ndrTime.h>
 #include <stdio.h>
 
-#define MULTITHREADED 1
-
 // world
 #define GROUND_MATERIAL NDR_MAKE_MATERIAL_LAMBERT(NDR_MAKE_COLOR(0.5f, 0.6f, 0.3f, 1.0f))
 #define MAX_OBJECTS 50
@@ -17,7 +15,7 @@
 // ray tracer
 #define SAMPLE_COUNT 50
 #define MAX_BOUNCES 100
-#if MULTITHREADED
+#ifdef MULTITHREADED
 #define MAX_THREADS 8
 #define MAX_TASKS 16
 #else
@@ -67,7 +65,7 @@ int main(int argc, char *argv[])
     ndrTime start, end;
     ndrGetTime(&start);
     printf("Rendering %s...\n", image_name);
-#if MULTITHREADED
+#ifdef MULTITHREADED
     ndrRenderMultiThreaded(world, camera, screenBuffer, settings);
 #else
     ndrRenderSingleThreaded(world, camera, screenBuffer, settings);

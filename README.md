@@ -12,31 +12,32 @@ This is my attempt at the "Ray Tracing in One Weekend" book. It is written in C,
 - Max Threads (multithreaded): 8
 - Max Tasks (multithreaded): 16
 
-![](https://github.com/RoyalCookieX/ndrRayTracer/blob/main/benchmark/singlethreaded/n50-s50-b100.png?raw=true)*Singlethreaded: 00:01:30 - 00:02:10*
+![](https://github.com/RoyalCookieX/ndrRayTracer/blob/main/benchmark/singlethreaded/n50-s50-b100.png?raw=true)*Singlethreaded (Release): 00:01:30 - 00:02:10*
 
 ![](https://github.com/RoyalCookieX/ndrRayTracer/blob/main/benchmark/multithreaded/n50-s50-b100.png?raw=true)
-*Multithreaded: 00:00:12 - 00:00:13*
+*Multithreaded (Release): 00:00:12 - 00:00:13*
 
 # Supported Platforms:
 ## OS:
 - Windows
 ## Build Targets
-- Visual Studio 2022
-- GNU Makefile
+- Visual Studio (2022, 2019, ...)
 
 # How to Build:
 ## Windows:
 - Clone this repository using ``git clone https://github.com/RoyalCookieX/ndrRayTracer.git``.
 - From the repository directory, open a terminal and run ``scripts/premake5 <ACTION>``. This will create a ``build/<ACTION>`` folder containing the build files. Replace ``<ACTION>`` with either:
     - ``vs2022`` for Visual Studio 2022
-    - ``gmake2`` for GNU Makefile
+    - ``vs2019`` for Visual Studio 2019, etc...
 - The following steps are build target specific:
 ### Visual Studio:
-- Open the solution file in the ``build/vs2022`` folder.
-### GNU Makefile
-- From the repository directory, run ``make -C build/gmake2 config=<CONFIG>``. This will create a ``bin/gmake2/<PROJECT_NAME>/<CONFIG>`` folder containing all the binaries. Replace ``<CONFIG>`` with either:
-    - ``debug`` for debug build
-    - ``release`` for release build
+- Open the solution file in the ``build/<ACTION>`` folder.
+- Select a ``<CONFIGURATION>``:
+    - ``debug`` for debug singlethreaded build
+    - ``debug-multithreaded`` for debug multithreaded build
+    - ``release`` for release singlethreaded build
+    - ``release-multithreaded`` for release multithreaded build
+- Run the project with ``F5``, which will eventually output ``bin/<ACTION>/sandbox/<CONFIGURATION>/sandbox.png``.
 
 # TODO:
 - [ ] Implement Ray Tracer

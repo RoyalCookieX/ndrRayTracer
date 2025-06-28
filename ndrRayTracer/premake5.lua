@@ -23,16 +23,16 @@ project "ndrRayTracer"
         "src",
     }
 
-    filter "configurations:debug"
+    filter "configurations:debug*"
         defines "_DEBUG"
         runtime "Debug"
         symbols "On"
 
-    filter "configurations:release"
+    filter "configurations:release*"
         runtime "Release"
         optimize "On"
 
     filter "system:windows"
         files {
-            "src/ndrThread_win32.c"
+            "src/ndrThread_win32.c",
         }

@@ -19,11 +19,23 @@ project "sandbox"
         "ndrRayTracer",
     }
 
-    filter "configurations:debug"
+    filter "configurations:debug*"
         runtime "Debug"
         symbols "On"
 
-    filter "configurations:release"
+    filter "configurations:release*"
         runtime "Release"
         optimize "On"
+
+    filter "configurations:*-multithreaded"
+        targetname "%{prj.name}-multithreaded"
+        defines {
+            "MULTITHREADED",
+        }
+
+    filter "action:vs*"
+        debugdir "%{TARGETDIR}"
+        debugargs {
+            "ray_tracer.png",
+        }
 
